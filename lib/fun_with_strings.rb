@@ -14,4 +14,9 @@ end
 
 class String
   include FunWithStrings
+  # palindrome testing
+  racecar = "racecar".palindrome?
+  ace = "ace".palindrome?
+  puts "racecar is a palindrome? #{racecar}"
+  puts "ace is a palindrome? #{ace}"
 end
