@@ -1,9 +1,14 @@
 module FunWithStrings
   def palindrome?
-    self == self.reverse
+    word = self.downcase
+    word = word.gsub(/(\W|\d)/, "")
+    word == word.reverse
   end
-  def count_words
-    # your code here
+  def count_words(s)
+    words = s.split(/\b/)
+    count = Hash.new
+    words.each { |w| count[w.downcase] += 1 }
+    return count
   end
   def anagram_groups
     # your code here
@@ -14,9 +19,4 @@ end
 
 class String
   include FunWithStrings
-  # palindrome testing
-  racecar = "racecar".palindrome?
-  ace = "ace".palindrome?
-  puts "racecar is a palindrome? #{racecar}"
-  puts "ace is a palindrome? #{ace}"
 end
