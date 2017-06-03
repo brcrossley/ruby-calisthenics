@@ -5,10 +5,10 @@ module FunWithStrings
     word == word.reverse
   end
   def count_words
-    words = self.split(/\W+/)
+    words = self.split(/[^\w]/)
     count = Hash.new(0)
     words.each { |w| count[w.downcase] += 1 }
-    count.sort_by { |k,v| v }.reverse
+    count.delete_if { |k, v| k == "" }
     return count
   end
   def anagram_groups
