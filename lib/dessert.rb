@@ -14,9 +14,11 @@ class Dessert
 end
 
 class JellyBean < Dessert
+  attr_accessor :name
   attr_accessor :flavor
   attr_reader :calories
   def initialize(flavor)
+    @name = "#{flavor} jelly bean"
     @flavor = "#{flavor} jelly bean"
     @calories = 5
   end
