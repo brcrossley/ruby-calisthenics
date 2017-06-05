@@ -12,7 +12,13 @@ module FunWithStrings
     return count
   end
   def anagram_groups
-    #TODO
+    input = self.split(" ")
+    out = {}
+    input.each do |w|
+	out[w.split('').sort.join] = [] if out[w.split('').sort.join].nil?
+	out[w.split('').sort.join].push(w)
+    end
+    out.values
   end
 end
 
