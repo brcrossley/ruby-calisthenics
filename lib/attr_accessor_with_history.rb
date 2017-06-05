@@ -5,12 +5,16 @@ class Class
     attr_reader attr_name+"_history" # create bar_history getter
     class_eval %Q{
       def #{attr_name}=(n)
-	@#{attr_name} = n
+	@#{attr_name} = n #sets attr_name to the given value
 	if @#{attr_name}_history.nil?
 	    @#{attr_name}_history = [nil]
-        else
-	    @#{attr_name}_history.push(n)
-	end
+	end #if history is nil, make it into an array with nil as an element
+        @#{attr_name}_history.push(n) #push the new value into history
+      end
+
+      def #{attr_name}_history
+	@#{attr_name}_history.pop(1) if @#{attr_name} #pops last element
+	@#{attr_name}_history
       end
     }
   end
